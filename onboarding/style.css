@@ -1,0 +1,171 @@
+/* 1. 기본 스타일 설정 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Pretendard', sans-serif; 
+    line-height: 1.6;
+    color: #333;
+}
+
+/* 2. 헤더 & 네비게이션 */
+header {
+    background-color: white;
+    padding: 30px 0;
+    text-align: center;
+    border-bottom: 2px solid #FFE5EC;
+}
+
+header h1 {
+    color: #333; 
+    margin-bottom: 15px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #888;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #FFB7C5;
+}
+
+/* 3. About Me 섹션 */
+#about {
+    padding: 80px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px; /* 사진과 글 사이 간격 좁히기 */
+    max-width: 900px;
+    width: 90%;
+}
+
+.about-image img {
+    width: 280px; /* 사진 크기 */
+    height: 280px;
+    object-fit: cover;
+    border-radius: 50%; /* 동그란 사진 */
+    border: 5px solid #FFB7C5;
+}
+
+.about-text {
+    text-align: left;
+    flex: none; /* 글 상자가 퍼지지 않게 고정 */
+}
+
+.about-text h2 {
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.about-text ul {
+    list-style: none; /* 리스트 점 없애기 */
+    padding: 0;
+    margin: 0;
+}
+
+.about-text li {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+/* 4. Experience 섹션 (활동 카드) */
+#experience {
+    padding: 100px 0;
+    background-color: #FFF5F7; /* 섹션 구분 배경색 */
+    text-align: center;
+}
+
+#experience h2 {
+    margin-bottom: 50px;
+    color: #333;
+}
+
+.exp-list {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.exp-item {
+    flex: 1;
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(255, 183, 197, 0.15); /* 은은한 핑크 그림자 */
+    border-top: 6px solid #FFB7C5; /* 상단 포인트 선 */
+    text-align: left;
+    min-height: 280px;
+    transition: 0.3s; /* 부드러운 애니메이션 */
+}
+
+.exp-item:hover {
+    transform: translateY(-10px); /* 마우스 올리면 슥 위로 */
+}
+
+.exp-item h3 {
+    color: #FFB7C5;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+}
+
+.role {
+    font-weight: bold; /* 역할 진하게 */
+    color: #444;
+    margin-bottom: 4px;
+}
+
+.period {
+    color: #999;
+    font-size: 0.9rem;
+    margin-bottom: 20px; /* 다음 항목과 간격 띄우기 */
+}
+
+/* 5. Footer (Contact) */
+footer {
+    padding: 60px 0;
+    text-align: center;
+    background-color: white;
+}
+
+footer h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+}
+
+.contact-info a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-info a:hover {
+    color: #FFB7C5;
+}
