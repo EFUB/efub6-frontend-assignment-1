@@ -1,0 +1,76 @@
+/* 1. 기본 설정 및 폰트 */
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+    background-color: #fff;
+}
+
+/* 2. 공통 컨테이너 (좌우 여백) */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+/* 3. 헤더 및 메뉴 스타일 */
+header {
+    text-align: center;
+    padding: 50px 0 20px 0;
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 0;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #888;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.main-nav a:hover {
+    color: #333;
+    font-weight: 700;
+}
+
+/* 1. About Me 메인 프로필 사진 */
+.profile-frame {
+    width: 120px;         /* 아주 작게 조정 (원래 280px에서 대폭 축소) */
+    height: 120px;        /* 가로세로 똑같이 해서 정원형 만들기 */
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #fce4ec;
+    margin: 0 auto 15px;  /* 가운데 정렬 */
+}
+
+/* 모든 활동 및 취미 사진 크기 통일 */
+.exp-img, .hobby-img {
+    width: 450px;        /* 20cm 정도의 큼직한 가로 크기 */
+    height: 450px;       /* 세로도 똑같이 해서 완벽한 정사각형 */
+    object-fit: cover;   /* 사진이 찌그러지지 않게 꽉 채움 */
+    border-radius: 30px; /* 예시 사진처럼 모서리를 아주 둥글게 */
+    display: block;      /* 가운데 정렬을 위해 블록 요소로 변경 */
+    margin: 20px auto;   /* 위아래 간격 주고 가운데 정렬 */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* 큼직한 사진에 어울리는 부드러운 그림자 */
+}
+
+/* 사진을 감싸는 박스도 크기에 맞춰 넓혀주기 */
+.exp-item {
+    width: 450px;        /* 사진 크기와 동일하게 */
+    text-align: center;
+    margin: 0 auto 60px; /* 아이템 간의 세로 간격을 충분히 줌 */
+}
