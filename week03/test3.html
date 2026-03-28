@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>EFUB JS 비동기 실습</title>
+</head>
+<body>
+    <h1>☕ 커피 리스트 출력 실습 (Console을 확인하세요!)</h1>
+    <p>F12를 눌러 <strong>Console</strong> 탭을 보시면 0.5초 간격으로 커피가 추가됩니다.</p>
+
+    <script>
+        const addCoffee = function (name) {
+            return function (prevName) {
+                return new Promise(function (resolve) {
+                    setTimeout(function () {
+                        let newName = prevName ? prevName + ', ' + name : name; 
+                        console.log(newName);
+                        resolve(newName); 
+                    }, 500);
+                });
+            };
+        };
+
+        async function makeCoffee() {
+            let coffee = await addCoffee('에스프레소')();
+            coffee = await addCoffee('아메리카노')(coffee);
+            coffee = await addCoffee('카페모카')(coffee);
+            await addCoffee('카페라떼')(coffee);
+            
+            console.log("모든 커피가 준비되었습니다! ✨");
+        }
+
+        makeCoffee();
+    </script>
+</body>
+</html>

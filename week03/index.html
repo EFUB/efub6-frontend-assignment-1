@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>가위바위보 게임</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="game-board">
+            <h1>가위바위보</h1>
+            
+            <div class="score-board">
+                <span id="user-score">0</span> : <span id="computer-score">0</span>
+            </div>
+
+            <div class="choice-buttons">
+                <button onclick="play('가위')">가위</button>
+                <button onclick="play('바위')">바위</button>
+                <button onclick="play('보')">보</button>
+            </div>
+
+            <div class="result-display">
+                <p id="match-up">준비!</p>
+                <h2 id="verdict">게임 시작</h2>
+            </div>
+
+            <button id="reset-btn" onclick="resetGame()">reset</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
