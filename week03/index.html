@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title> 가위바위보 게임 </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>가위바위보 게임</h1>
+    
+    <div class="score">인간 <span id="score">0 : 0</span> 컴퓨터</div>
+    
+    <div id="display" class="display">
+        <div class="player">
+            <p>인간</p>
+            <img id="userImg" src="바위.jpg" alt="유저 선택">
+        </div>
+        <div class="vs-text">VS</div>
+        <div class="player">
+            <p>컴퓨터</p>
+            <img id="computerImg" src="바위.jpg" alt="컴퓨터 선택">
+        </div>
+    </div>
+    
+    <div id="result" class="result">가위, 바위, 보 중 하나를 선택하세요!</div>
+
+    <div class="button-group">
+        <button class="btn-choice" onclick="play('가위')">가위</button>
+        <button class="btn-choice" onclick="play('바위')">바위</button>
+        <button class="btn-choice" onclick="play('보')">보</button>
+    </div>
+
+    <button id="resetBtn">게임 초기화</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
