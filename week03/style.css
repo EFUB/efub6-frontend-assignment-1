@@ -1,98 +1,62 @@
+
 body {
-  margin: 0;
-  padding: 0;
-  background-color: white;
-  font-family: "Trebuchet MS", "Arial Rounded MT Bold", sans-serif;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
 }
 
-.outer {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.game-board {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 350px;
 }
 
-.game-box {
-  width: 900px;
-  min-height: 700px;
-  background-color: #ffdbe6;
-  border-radius: 30px;
-  padding: 40px 50px;
-  box-sizing: border-box;
-  text-align: center;
+.score-board {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 20px 0;
 }
 
-h1 {
-  margin-top: 10px;
-  margin-bottom: 60px;
-  font-size: 56px;
-  font-weight: normal;
+.choice-buttons button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    margin: 5px;
+    cursor: pointer;
+    border: 2px solid #ffffff;
+    background: transparent;
+    color: white;
+    border-radius: 8px;
+    transition: 0.3s;
 }
 
-#score {
-  font-size: 48px;
-  margin: 0;
+.choice-buttons button:hover {
+    background: white;
+    color: #007bff;
 }
 
-#result-text {
-  font-size: 36px;
-  margin-top: 50px;
-  margin-bottom: 50px;
+.result-display {
+    margin: 30px 0;
+    min-height: 100px;
 }
 
-.battle-area {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin-bottom: 40px;
+#reset-btn {
+    background-color: #ff4757;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
 }
 
-.player-box {
-  width: 250px;
-  text-align: center;
-}
-
-.label {
-  font-size: 28px;
-  margin-bottom: 20px;
-}
-
-.player-box img {
-  width: 140px;
-  height: 140px;
-  object-fit: contain;
-}
-
-.button-area {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  margin-top: 20px;
-  margin-bottom: 50px;
-}
-
-.button-area button {
-  width: 120px;
-  height: 55px;
-  border: none;
-  border-radius: 16px;
-  background-color: white;
-  font-size: 28px;
-  cursor: pointer;
-}
-
-.reset-btn {
-  width: 140px;
-  height: 60px;
-  border: none;
-  border-radius: 16px;
-  background-color: white;
-  font-size: 28px;
-  cursor: pointer;
-}
-
-.button-area button:hover,
-.reset-btn:hover {
-  transform: scale(1.05);
+#reset-btn:hover {
+    background-color: #ff6b81;
 }
