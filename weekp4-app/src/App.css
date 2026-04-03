@@ -1,0 +1,41 @@
+body {
+  background: #fff5e6;
+  font-family: sans-serif;
+}
+
+.app {
+  max-width: 500px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+h1 {
+  color: #ff7a00;
+}
+
+input {
+  padding: 10px;
+  margin-right: 10px;
+  border: 2px solid #ff7a00;
+  border-radius: 5px;
+}
+
+button {
+  padding: 8px 12px;
+  margin: 3px;
+  background: #ff7a00;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+li {
+  list-style: none;
+  margin: 10px 0;
+}
+
+.completed span {
+  text-decoration: line-through;
+  color: gray;
+}
