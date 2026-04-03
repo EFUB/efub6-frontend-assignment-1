@@ -25,7 +25,7 @@ const getImgFile = (choice) => {
 // 5. 컴퓨터의 랜덤 선택
 const getComputerChoice = async () => {
     resultMsg.innerText = "컴퓨터가 내는 중...";
-    await delay(200); 
+    await delay(100); 
     
     const choices = ['가위', '바위', '보'];
     return choices[Math.floor(Math.random() * 3)];
