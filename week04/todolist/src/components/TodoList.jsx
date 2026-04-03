@@ -11,14 +11,17 @@ const TodoListBlock = styled.div`
 function TodoList({ todos, onRemove, onToggle }) {
   return (
     <TodoListBlock>
-      {/* 힌트: todos 배열을 map으로 순회하면서 TodoItem 컴포넌트를 렌더링하세요 */}
-      {/* 각 TodoItem에 key, id, text, done, onRemove, onToggle을 전달! */}
-      key={todo.id}
-      id={todo.id}
-      text={todo.text}
-      done={todo.done}
-      onRemove={onRemove}
-      onToggle={onToggle}
+      {/* todos 배열을 map으로 돌면서 각각의 todo를 TodoItem으로 변환합니다 */}
+      {todos.map(todo => (
+        <TodoItem
+          key={todo.id}
+          id={todo.id}
+          text={todo.text}
+          done={todo.done}
+          onRemove={onRemove}
+          onToggle={onToggle}
+        />
+      ))}
     </TodoListBlock>
   );
 }
