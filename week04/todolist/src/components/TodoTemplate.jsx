@@ -13,12 +13,11 @@ const TodoTemplateBlock = styled.div`
   padding: 20px;
 `;
 
-// 힌트: children을 props로 받아서 TodoTemplateBlock 안에 렌더링하세요
-// children은 App.jsx에서 <TodoTemplate> 안에 넣은 내용들이에요
-function TodoTemplate({ ______ }) {
+// children을 props로 받아서 렌더링
+function TodoTemplate({ children }) {
   return (
     <TodoTemplateBlock>
-      {______}
+      {children}
     </TodoTemplateBlock>
   );
 }
