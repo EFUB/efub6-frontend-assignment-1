@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="game.css" />
+    <title>인간 vs 컴퓨터 가위 바위 보</title>
+  </head>
+  <body>
+    <h1>인간 vs 컴퓨터 가위 바위 보</h1>
+    <h2 id="score-board">
+      <span id="human-score">0</span> : <span id="com-score">0</span>
+    </h3>
+    <p id="comment">버튼을 눌러 게임을 시작해 주세요.</p>
+    <div id="game-box">
+      <div>
+        <p><strong>인간</strong></p>
+        <div id="human-play"></div>
+      </div>
+      <div>
+        <p><strong>컴퓨터</strong></p>
+        <div id="com-play"></div>
+      </div>
+    </div>
+    <div id="btns">
+      <button id="scissor">가위</button>
+      <button id="rock">바위</button>
+      <button id="paper">보</button>
+    </div>
+    <button id="reset">초기화</button>
+    <script src="game.js"></script>
+  </body>
+</html>

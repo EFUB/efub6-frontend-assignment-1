@@ -1,0 +1,56 @@
+body {
+  text-align: center;
+  margin: 50px 300px;
+  padding: 20px;
+  border: 3px solid #cacaca;
+  border-radius: 20px;
+}
+
+p {
+  font-size: 20px;
+}
+#game-box {
+  display: flex;
+  justify-content: center;
+  gap: 25%;
+  padding: 0 50px;
+}
+
+#human-play,
+#com-play {
+  font-size: 100px;
+}
+
+#btns button {
+  margin: 20px;
+  width: 100px;
+  height: 60px;
+  border-radius: 20px;
+  border: none;
+  font-size: 25px;
+}
+
+#btns button:hover,
+#reset:hover {
+  border: 2px solid;
+}
+
+#scissor {
+  background-color: pink;
+}
+
+#rock {
+  background-color: #94e379;
+}
+
+#paper {
+  background-color: skyblue;
+}
+
+#reset {
+  font-size: 15px;
+  border: none;
+  padding: 5px 8px;
+  border-radius: 10px;
+  border: none;
+}
