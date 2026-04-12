@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import TodoTemplate from './components/TodoTemplate';
 import TodoHead from './components/TodoHead';
@@ -21,38 +21,43 @@ const TODO_LIST = [
 
 function App() {
   const [todos, setTodos] = useState(TODO_LIST);
+  const [testState, setTestState] = useState(false);
   const nextId = useRef(3);
 
-  const onCreate = (text) => {
+  const onCreate = useCallback((text) => {
     const todo = {
       id: nextId.current,
       text: text,
       done: false,
     };
 
-    setTodos(todos.concat(todo));
+    setTodos((prevTodos) => prevTodos.concat(todo));
     nextId.current += 1;
-  };
+  }, []);
 
-  const onRemove = (id) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
-  };
+  const onRemove = useCallback((id) => {
+    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
+  }, []);
 
-  const onToggle = (id) => {
-    setTodos(
-      todos.map((todo) =>
+  const onToggle = useCallback((id) => {
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) =>
         todo.id === id ? { ...todo, done: !todo.done } : todo
       )
     );
-  };
+  }, []);
 
-  const onUpdate = (id, newText) => {
-    setTodos(
-      todos.map((todo) =>
+  const onUpdate = useCallback((id, newText) => {
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) =>
         todo.id === id ? { ...todo, text: newText } : todo
       )
     );
-  };
+  }, []);
+
+  const onTest = useCallback(() => {
+    setTestState((prev) => !prev);
+  }, []);
 
   useEffect(() => {
     const saved = localStorage.getItem('todos');
@@ -75,6 +80,10 @@ function App() {
     <>
       <GlobalStyle />
       <TodoTemplate>
+        <button onClick={onTest} style={{ margin: '20px' }}>
+          테스트 버튼
+        </button>
+
         <TodoHead todos={todos} />
         <TodoList
           todos={todos}

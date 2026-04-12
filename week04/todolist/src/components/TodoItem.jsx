@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import styled, { css } from 'styled-components';
 import { MdDone, MdDelete } from 'react-icons/md';
 
@@ -37,10 +37,12 @@ const CheckCircle = styled.div`
   justify-content: center;
   margin-right: 20px;
   cursor: pointer;
-  ${props => props.done && css`
-    border: 1px solid #38d9a9;
-    color: #38d9a9;
-  `}
+  ${props =>
+    props.done &&
+    css`
+      border: 1px solid #38d9a9;
+      color: #38d9a9;
+    `}
 `;
 
 const Text = styled.div`
@@ -48,10 +50,12 @@ const Text = styled.div`
   font-size: 21px;
   color: #495057;
   cursor: pointer;
-  ${props => props.done && css`
-    color: #ced4da;
-    text-decoration: line-through;
-  `}
+  ${props =>
+    props.done &&
+    css`
+      color: #ced4da;
+      text-decoration: line-through;
+    `}
 `;
 
 const EditInput = styled.input`
@@ -71,16 +75,39 @@ function TodoItem({ id, done, text, onRemove, onToggle, onUpdate }) {
     setValue(text);
   }, [text]);
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    if (!value) return;
-    onUpdate(id, value);
+  const handleToggle = useCallback(() => {
+    onToggle(id);
+  }, [onToggle, id]);
+
+  const handleRemove = useCallback(() => {
+    onRemove(id);
+  }, [onRemove, id]);
+
+  const handleDoubleClick = useCallback(() => {
+    setEditing(true);
+  }, []);
+
+  const handleChange = useCallback((e) => {
+    setValue(e.target.value);
+  }, []);
+
+  const handleBlur = useCallback(() => {
     setEditing(false);
-  };
+  }, []);
+
+  const onSubmit = useCallback(
+    (e) => {
+      e.preventDefault();
+      if (!value.trim()) return;
+      onUpdate(id, value);
+      setEditing(false);
+    },
+    [id, value, onUpdate]
+  );
 
   return (
     <TodoItemBlock>
-      <CheckCircle done={done} onClick={() => onToggle(id)}>
+      <CheckCircle done={done} onClick={handleToggle}>
         {done && <MdDone />}
       </CheckCircle>
 
@@ -88,22 +115,22 @@ function TodoItem({ id, done, text, onRemove, onToggle, onUpdate }) {
         <form onSubmit={onSubmit} style={{ flex: 1 }}>
           <EditInput
             value={value}
-            onChange={(e) => setValue(e.target.value)}
-            onBlur={() => setEditing(false)}
+            onChange={handleChange}
+            onBlur={handleBlur}
             autoFocus
           />
         </form>
       ) : (
-        <Text done={done} onDoubleClick={() => setEditing(true)}>
+        <Text done={done} onDoubleClick={handleDoubleClick}>
           {text}
         </Text>
       )}
 
-      <Remove onClick={() => onRemove(id)}>
+      <Remove onClick={handleRemove}>
         <MdDelete />
       </Remove>
     </TodoItemBlock>
   );
 }
 
-export default TodoItem;
+export default React.memo(TodoItem);
