@@ -1,0 +1,72 @@
+body {
+  margin:0;
+  font-family: Arial, sans-serif;
+  background-color: #ebdfa4;
+  color: #000000;
+}
+
+header {
+  background-color: rgb(11, 58, 25);
+  padding: 20px;
+  text-align: center;
+  border-bottom: 3px solid #f9f3f3;
+  color: #fffefe
+}
+
+nav {
+  margin-top: 10px;
+}
+
+nav a {
+  text-decoration:none;
+  color: #fffefe;
+  margin:0 10px;
+}
+
+main {
+  width: 80%;
+  margin: 30px auto;
+}
+
+section {
+  background-color: rgb(252, 255, 251);
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+img.profile-img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+img.project-img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.skills ul,
+.experience ul {
+    padding-left: 20px;
+}
+
+article {
+    border: 1px solid #eeeeee;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    background-color: #fafafa;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    border-top: 1px solid #dddddd;
+}
