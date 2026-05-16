@@ -1,9 +1,12 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { createGlobalStyle } from "styled-components";
 import TodoTemplate from "./components/TodoTemplate";
 import TodoHead from "./components/TodoHead";
 import TodoList from "./components/TodoList";
 import TodoCreate from "./components/TodoCreate";
+import TimeButton from "./components/TimeButton";
+import TimePage from "./pages/TimePage";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -53,19 +56,30 @@ function App() {
   };
 
   return (
-    <>
+    <BrowserRouter>
       <GlobalStyle />
-      <TodoTemplate>
-        <TodoHead todos={todos} />
-        <TodoList
-          todos={todos}
-          onRemove={onRemove}
-          onToggle={onToggle}
-          onUpdate={onUpdate}
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <TodoTemplate>
+                <TodoHead todos={todos} />
+                <TodoList
+                  todos={todos}
+                  onRemove={onRemove}
+                  onToggle={onToggle}
+                  onUpdate={onUpdate}
+                />
+                <TodoCreate onCreate={onCreate} />
+              </TodoTemplate>
+              <TimeButton />
+            </>
+          }
         />
-        <TodoCreate onCreate={onCreate} />
-      </TodoTemplate>
-    </>
+        <Route path="/time" element={<TimePage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
