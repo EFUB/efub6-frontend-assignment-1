@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import Header from './components/Header';
@@ -50,29 +50,40 @@ function App() {
   const [sort, setSort] = useState('popularity');
 
   useEffect(() => {
-    axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=ko-KR`)
+    axios
+      .get(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=ko-KR`)
       .then(response => {
         setMovies(response.data.results);
         setIsLoading(false);
       });
   }, []);
 
-  const sortedMovies = [...movies].sort((a, b) => {
-    if (sort === 'popularity') return b.popularity - a.popularity;
-    if (sort === 'rating') return b.vote_average - a.vote_average;
-    if (sort === 'date') return new Date(b.release_date) - new Date(a.release_date);
-    return 0;
-  });
+  const sortedMovies = useMemo(() => {
+    return [...movies].sort((a, b) => {
+      if (sort === 'popularity') return b.popularity - a.popularity;
+      if (sort === 'rating')     return b.vote_average - a.vote_average;
+      if (sort === 'date')       return new Date(b.release_date) - new Date(a.release_date);
+      return 0;
+    });
+  }, [movies, sort]);
 
   return (
     <GlobalStyle>
       <Header />
-      {isLoading ? <Loading>Loading...</Loading> : (
+      {isLoading ? (
+        <Loading>Loading...</Loading>
+      ) : (
         <>
           <SortButtons>
-            <SortBtn active={sort === 'popularity'} onClick={() => setSort('popularity')}>인기순</SortBtn>
-            <SortBtn active={sort === 'rating'} onClick={() => setSort('rating')}>평점순</SortBtn>
-            <SortBtn active={sort === 'date'} onClick={() => setSort('date')}>최신순</SortBtn>
+            <SortBtn active={sort === 'popularity'} onClick={() => setSort('popularity')}>
+              인기순
+            </SortBtn>
+            <SortBtn active={sort === 'rating'} onClick={() => setSort('rating')}>
+              평점순
+            </SortBtn>
+            <SortBtn active={sort === 'date'} onClick={() => setSort('date')}>
+              최신순
+            </SortBtn>
           </SortButtons>
           <Body movies={sortedMovies} />
         </>
